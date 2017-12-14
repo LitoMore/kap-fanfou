@@ -1,6 +1,6 @@
 {
   "name": "kap-fanfou",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Share GIFs on Fanfou",
   "main": "index.js",
   "scripts": {
