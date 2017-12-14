@@ -1,0 +1,33 @@
+{
+  "name": "kap-fanfou",
+  "version": "0.1.0",
+  "description": "Share GIFs on Fanfou",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LitoMore/kap-fanfou.git"
+  },
+  "author": "LitoMore",
+  "license": "MIT",
+  "keywords": [
+		"kap-plugin",
+		"fanfou",
+		"gif",
+		"upload",
+    "fanfou-sdk",
+    "share"
+	],
+  "bugs": {
+    "url": "https://github.com/LitoMore/kap-fanfou/issues"
+  },
+  "homepage": "https://github.com/LitoMore/kap-fanfou#readme",
+  "dependencies": {
+    "fanfou-sdk": "^2.5.1"
+  },
+  "devDependencies": {
+    "xo": "^0.18.2"
+  }
+}
