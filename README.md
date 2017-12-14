@@ -17,7 +17,7 @@ In the editor, after recording, select one of the export formats, and then `Shar
 
 ## Related
 
-- [fanfou-sdk](https://github.com/LitoMore) - Fanfou SDK for Node.js
+- [fanfou-sdk](https://github.com/LitoMore/fanfou-sdk-node) - Fanfou SDK for Node.js
 
 ## License
 
