@@ -19,13 +19,13 @@
     "upload",
     "fanfou-sdk",
     "share"
-	],
+  ],
   "bugs": {
     "url": "https://github.com/LitoMore/kap-fanfou/issues"
   },
   "homepage": "https://github.com/LitoMore/kap-fanfou#readme",
   "dependencies": {
-    "fanfou-sdk": "^2.5.1"
+    "fanfou-sdk": "^2.6.0"
   },
   "devDependencies": {
     "xo": "^0.18.2"
