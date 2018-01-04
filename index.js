@@ -3,17 +3,18 @@
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
+const {promisify} = require('util');
 const Fanfou = require('fanfou-sdk');
 
 const action = async context => {
-	context.setProgress('Uploading...');
+	context.setProgress('Uploading…');
 	const filePath = await context.filePath();
 
 	let token = {};
 
 	if (context.config.get('useNofanConfig')) {
-		const user = require(path.join(os.homedir(), '/.nofan/config')).USER;
-		const account = require(path.join(os.homedir(), '/.nofan/account'))[user];
+		const user = require(path.join(os.homedir(), '.nofan/config')).USER;
+		const account = require(path.join(os.homedir(), '.nofan/account'))[user];
 		token = {
 			consumerKey: account.CONSUMER_KEY,
 			consumerSecret: account.CONSUMER_SECRET,
@@ -30,22 +31,19 @@ const action = async context => {
 	}
 
 	const ff = new Fanfou(token);
+	const upload = promisify(ff.up);
 
-	ff.up('/photos/upload', {
-		photo: fs.createReadStream(filePath),
-		status: '刚刚用 Kap 发布了一张照片'
-	}, err => {
-		if (err) {
-			context.notify(err.message);
-		} else {
-			context.notify('Succeed!');
-		}
-	});
+	try {
+		await upload('/photos/upload', {photo: fs.createReadStream(filePath), status: '刚刚用 Kap 发布了一张照片'});
+		context.notify('Succeed!');
+	} catch (err) {
+		context.notify(err.message);
+	}
 };
 
 const fanfou = {
 	title: 'Share to Fanfou',
-	formats: ['gif', 'jpeg', 'jpg', 'png', 'psd'],
+	formats: ['gif'],
 	action,
 	config: {
 		consumerKey: {
