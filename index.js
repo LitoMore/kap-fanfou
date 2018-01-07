@@ -1,10 +1,8 @@
 'use strict';
 
 const os = require('os');
-const fs = require('fs');
 const path = require('path');
-const {promisify} = require('util');
-const Fanfou = require('fanfou-sdk');
+const Fanfou = require('./fanfou');
 
 const action = async context => {
 	context.setProgress('Uploading…');
@@ -30,15 +28,8 @@ const action = async context => {
 		};
 	}
 
-	const ff = new Fanfou(token);
-	const upload = promisify(ff.up);
-
-	try {
-		await upload('/photos/upload', {photo: fs.createReadStream(filePath), status: '刚刚用 Kap 发布了一张照片'});
-		context.notify('Succeed!');
-	} catch (err) {
-		context.notify(err.message);
-	}
+	const result = await Fanfou.upload(token, filePath);
+	context.notify(result);
 };
 
 const fanfou = {
