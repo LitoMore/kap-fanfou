@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Share GIFs on Fanfou",
   "scripts": {
-    "test": "xo"
+    "test": "xo && ava"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "fanfou-sdk": "^2.6.0"
   },
   "devDependencies": {
+    "ava": "^0.24.0",
+    "kap-plugin-test": "^0.5.0",
     "xo": "^0.18.2"
   }
 }
