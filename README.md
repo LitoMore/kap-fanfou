@@ -1,9 +1,10 @@
 # kap-fanfou
 
+[![](https://badges.greenkeeper.io/LitoMore/kap-fanfou.svg)](https://greenkeeper.io/)
 [![](https://img.shields.io/travis/LitoMore/kap-fanfou/master.svg)](https://travis-ci.org/LitoMore/kap-fanfou)
 [![](https://img.shields.io/npm/v/kap-fanfou.svg)](https://www.npmjs.com/package/kap-fanfou)
 [![](https://img.shields.io/npm/l/kap-fanfou.svg)](https://github.com/LitoMore/kap-fanfou/blob/master/LICENSE)
-[![](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![Greenkeeper badge](https://badges.greenkeeper.io/LitoMore/kap-fanfou.svg)](https://greenkeeper.io/)
+[![](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 > [Kap](https://github.com/wulkano/kap) plugin - Share on Fanfou
 
