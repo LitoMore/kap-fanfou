@@ -23,10 +23,10 @@ const isDuplicate = token => {
 Fanfou.upload = async (token, filePath) => {
 	const ff = new FanfouSDK(token);
 	const isDup = await isDuplicate(token);
-	let status = defaultStatus
+	let status = defaultStatus;
 
 	if (isDup) {
-		status += '。'
+		status += '。';
 	}
 
 	return new Promise((resolve, reject) => {
