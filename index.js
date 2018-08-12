@@ -28,8 +28,12 @@ const action = async context => {
 		};
 	}
 
-	const result = await Fanfou.upload(token, filePath);
-	context.notify(result);
+	try {
+		const result = await Fanfou.upload(token, filePath);
+		context.notify(result);
+	} catch (err) {
+		context.notify(err.message);
+	}
 };
 
 const fanfou = {
