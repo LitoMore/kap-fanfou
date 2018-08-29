@@ -8,7 +8,7 @@ const defaultStatus = '刚刚用 Kap 发布了一张照片';
 
 const isDuplicate = async token => {
 	const ff = new FanfouSDK(token);
-	const res = await ff.get('/statuses/user_timeline', {count: 1});
+	const res = await ff.get('/statuses/user_timeline', {count: 1}) || [];
 	const [item = {}] = res;
 	return item.text === defaultStatus;
 };
@@ -21,8 +21,10 @@ Fanfou.upload = async (token, filePath) => {
 	if (isDup) {
 		status += '。';
 	}
-
-	await ff.upload('/photos/upload', {photo: fs.createReadStream(filePath), status});
+	const res = await ff.upload('/photos/upload', {photo: fs.createReadStream(filePath), status});
+	if (res.error) {
+		throw new Error(res.error);
+	}
 	return 'Succeed';
 };
 
