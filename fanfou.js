@@ -6,18 +6,11 @@ const FanfouSDK = require('fanfou-sdk');
 const Fanfou = {};
 const defaultStatus = '刚刚用 Kap 发布了一张照片';
 
-const isDuplicate = token => {
+const isDuplicate = async token => {
 	const ff = new FanfouSDK(token);
-	return new Promise((resolve, reject) => {
-		ff.get('/statuses/user_timeline', {count: 1}, (err, res) => {
-			if (err) {
-				reject(err);
-			} else {
-				const [item = {}] = res;
-				resolve(item.text === defaultStatus);
-			}
-		});
-	});
+	const res = await ff.get('/statuses/user_timeline', {count: 1});
+	const [item = {}] = res;
+	return item.text === defaultStatus;
 };
 
 Fanfou.upload = async (token, filePath) => {
@@ -29,15 +22,8 @@ Fanfou.upload = async (token, filePath) => {
 		status += '。';
 	}
 
-	return new Promise((resolve, reject) => {
-		ff.up('/photos/upload', {photo: fs.createReadStream(filePath), status}, err => {
-			if (err) {
-				reject(err);
-			} else {
-				resolve('Succeed!');
-			}
-		});
-	});
+	await ff.upload('/photos/upload', {photo: fs.createReadStream(filePath), status});
+	return 'Succeed';
 };
 
 module.exports = Fanfou;
