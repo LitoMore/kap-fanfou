@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/LitoMore/kap-fanfou#readme",
   "dependencies": {
-    "fanfou-sdk": "^2.7.3"
+    "fanfou-sdk": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
