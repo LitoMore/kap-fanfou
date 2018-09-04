@@ -31,8 +31,8 @@ const action = async context => {
 	try {
 		const result = await Fanfou.upload(token, filePath);
 		context.notify(result);
-	} catch (err) {
-		context.notify(err.message);
+	} catch (error) {
+		context.notify(error.message);
 	}
 };
 
