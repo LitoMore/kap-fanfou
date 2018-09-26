@@ -5,7 +5,6 @@ const path = require('path');
 const Fanfou = require('./fanfou');
 
 const action = async context => {
-	context.setProgress('Uploading…');
 	const filePath = await context.filePath();
 
 	let token = {};
@@ -28,12 +27,9 @@ const action = async context => {
 		};
 	}
 
-	try {
-		const result = await Fanfou.upload(token, filePath);
-		context.notify(result);
-	} catch (error) {
-		context.notify(error.message);
-	}
+	context.setProgress('Uploading…');
+	const result = await Fanfou.upload(token, filePath);
+	context.notify(result);
 };
 
 const fanfou = {
@@ -45,34 +41,35 @@ const fanfou = {
 			title: 'Consumer Key',
 			type: 'string',
 			minLength: 32,
-			default: 'Your consumer key',
+			description: 'Your consumer key',
 			required: true
 		},
 		consumerSecret: {
 			title: 'Consumer Secret',
 			type: 'string',
 			minLength: 32,
-			default: 'Your consumer secret',
+			description: 'Your consumer secret',
 			required: true
 		},
 		oauthToken: {
 			title: 'OAuth Token',
 			type: 'string',
 			minLength: 32,
-			default: 'Your oauth token',
+			description: 'Your oauth token',
 			required: true
 		},
 		oauthTokenSecret: {
 			title: 'OAuth Token Secret',
 			type: 'string',
 			minLength: 32,
-			default: 'Your oauth token secret',
+			description: 'Your oauth token secret',
 			required: true
 		},
 		useNofanConfig: {
 			title: 'Use nofan config',
 			type: 'boolean',
 			default: false,
+			description: 'Use the local nofan config',
 			required: true
 		}
 	}

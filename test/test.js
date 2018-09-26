@@ -13,9 +13,12 @@ test(async t => {
 	};
 	const plugin = kapPluginTest(path.join(__dirname, 'fixtures/unicorn.gif'), {config});
 
-	await plugin.run();
-	delete plugin.context.config.s.useNofanConfig;
+	try {
+		await plugin.run();
+	} catch (error) {
+		delete plugin.context.config.s.useNofanConfig;
 
-	t.deepEqual(config, plugin.context.config.s);
-	t.true(plugin.context.notify.calledWith('Invalid consumer'));
+		t.deepEqual(config, plugin.context.config.s);
+		t.is(error.message, 'Invalid consumer');
+	}
 });
