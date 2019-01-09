@@ -21,7 +21,7 @@ Fanfou.upload = async (token, filePath) => {
 	if (isDup) {
 		status += '。';
 	}
-	const res = await ff.upload('/photos/upload', {photo: fs.createReadStream(filePath), status});
+	const res = await ff.post('/photos/upload', {photo: fs.createReadStream(filePath), status});
 	if (res.error) {
 		throw new Error(res.error);
 	}
