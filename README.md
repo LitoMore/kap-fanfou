@@ -12,6 +12,12 @@
 
 In the `Kap` menu, go to `Preferences…`, select the `Plugins` pane, find this plugin, and click `Install`.
 
+---
+
+<a href="https://www.patreon.com/LitoMore">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+
 ## Usage
 
 In the editor, after recording, select one of the export formats, and then `Share on Fanfou`.
