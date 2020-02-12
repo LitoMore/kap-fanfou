@@ -29,6 +29,6 @@
   "devDependencies": {
     "ava": "^2.0.0",
     "kap-plugin-test": "^0.5.0",
-    "xo": "^0.25.3"
+    "xo": "^0.26.0"
   }
 }
